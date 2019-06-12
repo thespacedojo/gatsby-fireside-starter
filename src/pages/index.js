@@ -1,21 +1,32 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
+import Podcast from "../components/podcast"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    query MyQuery {
+      allItems(sort: {fields: date_published, order: DESC}) {
+        nodes {
+          title
+          id
+        }
+      }
+    }
+  `)
+  return (
+    <Layout>
+      <SEO title="List of podcasts" />
+      <h1>Podcasts</h1>
+      { data.allItems.nodes.map((podcast) => (
+        <Podcast key={podcast.id} podcast={podcast} />
+        ))
+      }
+    </Layout>
+  )
+}
 
 export default IndexPage

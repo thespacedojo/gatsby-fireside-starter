@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Gatsby Fireside Podcast app`,
+    description: `Kick off your next, great podcast with this default Gatsby app. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    author: `@joshowens`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -15,6 +15,30 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: "gatsby-source-custom-api",
+      options: {
+        url: "https://catholicanglican.fireside.fm/json",
+        rootKey: "podcast",
+        schemas: {
+          podcast: `
+            title: String
+            items: [items]
+          `,
+          items: `
+            title: String
+            content_html: String
+            attachments: [attachments]
+          `,
+          attachments: `
+            url: String
+            mime_type: String
+            size_in_bytes: Int
+            duration_in_seconds: Int
+          `
+        }
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

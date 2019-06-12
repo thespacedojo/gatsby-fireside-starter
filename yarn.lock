@@ -4701,7 +4701,16 @@ gatsby-react-router-scroll@^2.0.7:
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
 
-gatsby-source-filesystem@^2.0.38:
+gatsby-source-custom-api@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/gatsby-source-custom-api/-/gatsby-source-custom-api-2.0.4.tgz#91bbb2d6a955ca5bd6f3865abe8ca01d4f50a3e6"
+  integrity sha512-5g3xE8YrpRnSlj90v2CckJHIEv6qROrM19niGWuibStz13GUJvlIKdsAgUxWdmYFZV0lkX3JOdOH9um3S2YGFQ==
+  dependencies:
+    gatsby-source-filesystem "^2.0.29"
+    node-fetch "^2.3.0"
+    uuid "^3.3.2"
+
+gatsby-source-filesystem@^2.0.29, gatsby-source-filesystem@^2.0.38:
   version "2.0.38"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.0.38.tgz#8f9c2b8c0f17d1f8c464c3488a14e15c62c6eca2"
   integrity sha512-r7LNTSVtgFz0n4Ox0iDc8PkOSM8nja+ONkcvyFWSyV1KjnvQdcsxXbVZba0S+ngUp+R+wSFS/GGD2LqdV0mCVA==
@@ -7270,6 +7279,11 @@ node-fetch@^1.0.1:
   dependencies:
     encoding "^0.1.11"
     is-stream "^1.0.1"
+
+node-fetch@^2.3.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
+  integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
 
 node-forge@0.7.5:
   version "0.7.5"
