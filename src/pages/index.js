@@ -3,7 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
-import Podcast from "../components/podcast"
+import Episode from "../components/episode"
 import SEO from "../components/seo"
 
 const IndexPage = () => {
@@ -13,6 +13,12 @@ const IndexPage = () => {
         nodes {
           title
           id
+          attachments {
+            id
+            url
+          }
+          content_html
+          summary
         }
       }
     }
@@ -21,8 +27,8 @@ const IndexPage = () => {
     <Layout>
       <SEO title="List of podcasts" />
       <h1>Podcasts</h1>
-      { data.allItems.nodes.map((podcast) => (
-        <Podcast key={podcast.id} podcast={podcast} />
+      { data.allItems.nodes.map((episode) => (
+        <Episode key={episode.id} episode={episode} />
         ))
       }
     </Layout>
