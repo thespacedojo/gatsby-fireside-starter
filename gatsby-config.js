@@ -18,7 +18,7 @@ module.exports = {
     {
       resolve: "gatsby-source-custom-api",
       options: {
-        url: "https://catholicanglican.fireside.fm/json",
+        url: "https://www.acecomicals.com/json",
         rootKey: "podcast",
         schemas: {
           podcast: `
@@ -40,10 +40,17 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
+        trackingId: "UA-XXXXXXXXX-X",
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `gatsby-fireside-starter`,
+        short_name: `fireside`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,

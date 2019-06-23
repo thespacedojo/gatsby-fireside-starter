@@ -13,6 +13,9 @@ const IndexPage = () => {
         nodes {
           title
           id
+          fields {
+            slug
+          }
           attachments {
             id
             url
